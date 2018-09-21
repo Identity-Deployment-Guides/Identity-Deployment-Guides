@@ -14,6 +14,8 @@ directly, send an email to <aadappfeedback@microsoft.com>.
 Instructions for how to use the tool
 ====================================
 
+**If you want this same guidance below  in Word Document form click to the [ADFS to AAD Migration Tool Help File](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/ADFS%20to%20AzureAD%20App%20Migration/ADFS%20to%20AAD%20Migration%20Tool%20Help%20File.docx) in the repo above and click the "download" button.**
+
 The ADFS to AAD App Migration tool consists of three steps:
 
 **Collect**
@@ -43,25 +45,25 @@ a workstation or server where Excel is installed.
 **Instructions if you want to collect and analyze directly from your
 ADFS server:**
 
-1.  Download PowerShell module from
+1. Download PowerShell module from
     <http://aka.ms/migrateapps/adfsscript>
 
-2.) Copy PowerShell module to one of your ADFS servers that you want to
+2. Copy PowerShell module to one of your ADFS servers that you want to
 run analysis. If you need to save file, be sure to save as .psm1
 
-3.) From this same ADFS server, open PowerShell as "Administrator"
+3. From this same ADFS server, open PowerShell as "Administrator"
 
-4.) Change the directory to where you placed this PowerShell module
+4. Change the directory to where you placed this PowerShell module
 
-5.) From that PowerShell window, run the following:
+5. From that PowerShell window, run the following:
 
-ipmo .\\ADFSAADMigrationUtils.psm1
+`ipmo .\\ADFSAADMigrationUtils.psm1`
 
-Export-ADFS2AADOnPremConfiguration
+`Export-ADFS2AADOnPremConfiguration`
 
-Test-ADFS2AADOnPremRPTrustSet -RPXMLFileDirectory "C:\\adfs\\apps"
+`Test-ADFS2AADOnPremRPTrustSet -RPXMLFileDirectory "C:\adfs\apps"`
 
-6.) Collect the following files from the ADFS server. They will be in
+6. Collect the following files from the ADFS server. They will be in
 the same folder that you changed directories to in Step 4.
 
 -   ADFSRPConfiguration.csv
@@ -74,10 +76,10 @@ the same folder that you changed directories to in Step 4.
 
 -   RuleDetails.csv
 
-7.) On a workstation that has Excel installed, create a folder at
+7. On a workstation that has Excel installed, create a folder at
 c:\\adfs and place the above .csv files in this folder
 
-8.) From this same workstation, open this Excel spreadsheet and navigate
+8. From this same workstation, open this Excel spreadsheet and navigate
 to the Dashboard tab and hit the Refresh Data button on the right.
 
 **Note:** If you want to re-export and re-analyze the data, just repeat
@@ -93,38 +95,38 @@ Steps 5-7 and overwrite files in Step 6 with new files
 
 2.  From this same ADFS server, open PowerShell as "Administrator".
 
-4.) Change the directory to where you placed this PowerShell module.
+4. Change the directory to where you placed this PowerShell module.
 
-5.) From that PowerShell window, run the following:
+5. From that PowerShell window, run the following:
 
-ipmo .\\ADFSAADMigrationUtils.psm1
+`ipmo .\\ADFSAADMigrationUtils.psm1`
 
-Export-ADFS2AADOnPremConfiguration
+`Export-ADFS2AADOnPremConfiguration`
 
 **Run Analysis From Another Server **
 
-1.) Copy c:\\ADFS\\ADFSApps.zip from your ADFS server to another ADFS
+1. Copy c:\\ADFS\\ADFSApps.zip from your ADFS server to another ADFS
 server where you want to run analysis
 
-2.) On this other ADFS server, unzip the .XML files to a folder of your
+2. On this other ADFS server, unzip the .XML files to a folder of your
 choosing
 
-3.) On this other ADFS server, download PowerShell module from
+3. On this other ADFS server, download PowerShell module from
 <http://aka.ms/migrateapps/adfsscript>. If you need to save file, be
 sure to save as .psm1 .
 
-4.) From this other server, open PowerShell as "Administrator".
+4. From this other server, open PowerShell as "Administrator".
 
-5.) Change the directory to where you placed this PowerShell module.
+5. Change the directory to where you placed this PowerShell module.
 
-6.) From that PowerShell window, run the following:
+6. From that PowerShell window, run the following:
 
-ipmo .\\ADFSAADMigrationUtils.psm1
+`ipmo .\\ADFSAADMigrationUtils.psm1`
 
-Test-ADFS2AADOnPremRPTrustSet -RPXMLFileDirectory "&lt;Full Path to XML
-Folder&gt;"
+`Test-ADFS2AADOnPremRPTrustSet -RPXMLFileDirectory "<Full Path to XML
+Folder>"`
 
-7.) Collect the following files from this ADFS server. They will be in
+7. Collect the following files from this ADFS server. They will be in
 the same folder that you changed directories to in Step 5.
 
 -   ADFSRPConfiguration.csv
@@ -137,10 +139,10 @@ the same folder that you changed directories to in Step 5.
 
 -   RuleDetails.csv
 
-8.) On a workstation that has Excel installed, create a folder at
+8. On a workstation that has Excel installed, create a folder at
 c:\\adfs and place the above .csv files in this folder
 
-9.) From this same workstation, open this Excel spreadsheet and navigate
+9. From this same workstation, open this Excel spreadsheet and navigate
 to the Dashboard tab and hit the Refresh Data button on the right.
 
 **Note:** If you want to re-export and re-analyze the data, just repeat
@@ -154,8 +156,7 @@ Anytime you want to refresh your data, just make sure that the latest
 .csv files are located within c:\\ADFS and from the Dashboard tab, just
 hit the ‘Refresh Data’ button:
 
-![](media/image1.png){width="1.078125546806649in"
-height="1.2529571303587053in"}
+![](media/image1.png)
 
 **Viewing Your All-Up Results**
 
@@ -163,7 +164,7 @@ The first tab you’ll want to review is the ‘Dashboard’ tab to see an
 all-up view of how many applications you have and whether they can
 migrate to Azure AD or not:
 
-![](media/image2.png){width="6.5in" height="2.165277777777778in"}
+![](media/image2.png)
 
 **Viewing Individual Application Results**
 
@@ -173,7 +174,7 @@ application will readily migrate to Azure AD or whether there are
 settingd on the application that are currently incompatible with Azure
 AD or need to be reviewed further.
 
-![](media/image3.png){width="6.5in" height="3.5840277777777776in"}
+![](media/image3.png)
 
 As you can see here, both 7FAM applications passed and can be readily
 migrate to Azure AD but the remaining three applications have some items
@@ -207,7 +208,7 @@ AD:
     custom attribute stores so if you’re using anything beyond ‘Active
     Directory’ within your claim rules, we give you that count here.
 
-![](media/image4.png){width="6.5in" height="2.154861111111111in"}
+![](media/image4.png)
 
 **Viewing All your Claim Rules**
 
@@ -231,7 +232,7 @@ you with the following information:
     the name of the rule that the claim rule matched. Only present if
     the rule passed.
 
-![](media/image5.png){width="6.5in" height="1.81875in"}
+![](media/image5.png)
 
 **Viewing All your AD Attributes within your Claim Rules**
 
@@ -257,7 +258,7 @@ with the following information:
 -   **Note:** We highlight (in red) where the AD attribute is in use
     within the claim rule.
 
-![](media/image6.png){width="6.5in" height="1.7548611111111112in"}
+![](media/image6.png)
 
 **Viewing All your Claim Type URI’s within your Claim Rules**
 
@@ -282,7 +283,7 @@ following information:
 -   **Note:** We highlight (in red) where the Claim Type URI is in use
     within the claim rule.
 
-![](media/image7.png){width="6.5in" height="1.9284722222222221in"}
+![](media/image7.png)
 
 **Viewing All your Attribute Stores within your Claim Rules**
 
@@ -303,7 +304,7 @@ with the following information:
     2.0 concept that isn’t truly a blocker for moving an application to
     Azure AD.
 
-![](media/image8.png){width="6.5in" height="2.407638888888889in"}
+![](media/image8.png)
 
 **Modeling Change to your applications**
 
@@ -315,17 +316,17 @@ how that impacts your migration %. Additionally, the issues impacting
 the most applications will highlight themselves in a light green like
 so:
 
-![](media/image9.png){width="6.5in" height="3.767361111111111in"}
+![](media/image9.png)
 
 Next, mark the items you are committing to resolve or features that may
 be coming as part of the Azure AD roadmap:
 
-![](media/image10.png){width="6.5in" height="3.763888888888889in"}
+![](media/image10.png)
 
 Upon doing so, the top of the ‘Dashboard’ tab will update to reflect
 your new migration % like so:
 
-![](media/image11.png){width="6.5in" height="1.5305555555555554in"}
+![](media/image11.png)
 
 **Viewing All Tests we Ran Your Applications Through**
 
