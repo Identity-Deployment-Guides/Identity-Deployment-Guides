@@ -45,147 +45,93 @@ a workstation or server where Excel is installed.
 **Instructions if you want to collect and analyze directly from your
 ADFS server:**
 
-1. Download PowerShell module from
-    <http://aka.ms/migrateapps/adfsscript>
+    1. Download PowerShell module from [http://aka.ms/migrateapps/adfsscript](http://aka.ms/migrateapps/adfsscript)
 
-2. Copy PowerShell module to one of your ADFS servers that you want to
-run analysis. If you need to save file, be sure to save as .psm1
+    2. Copy PowerShell module to one of your ADFS servers that you want to run analysis. If you need to save file, be sure to save as .psm1
 
-3. From this same ADFS server, open PowerShell as "Administrator"
+    3. From this same ADFS server, open PowerShell as "Administrator"
 
-4. Change the directory to where you placed this PowerShell module
+    4. Change the directory to where you placed this PowerShell module
 
-5. From that PowerShell window, run the following:
+    5. From that PowerShell window, run the following:
 
-`ipmo .\\ADFSAADMigrationUtils.psm1`
+       `ipmo .\\ADFSAADMigrationUtils.psm1`
 
-`Export-ADFS2AADOnPremConfiguration`
+       `Export-ADFS2AADOnPremConfiguration`
 
-`Test-ADFS2AADOnPremRPTrustSet -RPXMLFileDirectory "C:\adfs\apps"`
+        `Test-ADFS2AADOnPremRPTrustSet -RPXMLFileDirectory "C:\adfs\apps"`
 
-6. Collect the following files from the ADFS server. They will be in
-the same folder that you changed directories to in Step 4.
+    6. Collect the following files from the ADFS server. They will be in the same folder that you changed directories to in Step 4.
 
--   ADFSRPConfiguration.csv
+        - ADFSRPConfiguration.csv
+        - Attributes.csv
+        - AttributeStores.csv
+        - ClaimTypes.csv
+        - RuleDetails.csv
 
--   Attributes.csv
+    7. On a workstation that has Excel installed, create a folder at c:\adfs and place the above .csv files in this folder
 
--   AttributeStores.csv
+    8. From this same workstation, open this Excel spreadsheet and navigate to the Dashboard tab and hit the Refresh Data button on the right.
 
--   ClaimTypes.csv
-
--   RuleDetails.csv
-
-7. On a workstation that has Excel installed, create a folder at
-c:\\adfs and place the above .csv files in this folder
-
-8. From this same workstation, open this Excel spreadsheet and navigate
-to the Dashboard tab and hit the Refresh Data button on the right.
-
-**Note:** If you want to re-export and re-analyze the data, just repeat
-Steps 5-7 and overwrite files in Step 6 with new files
+**Note:** If you want to re-export and re-analyze the data, just repeat Steps 5-7 and overwrite files in Step 6 with new files
 
 **Instructions If You Want to run the Analysis from Another Server**
 
 **ADFS Server**
 
-1.  On your ADFS server, download PowerShell module from
-    <http://aka.ms/migrateapps/adfsscript>. If you need to save file, be
-    sure to save as .psm1.
-
-2.  From this same ADFS server, open PowerShell as "Administrator".
-
-4. Change the directory to where you placed this PowerShell module.
-
-5. From that PowerShell window, run the following:
-
-`ipmo .\\ADFSAADMigrationUtils.psm1`
-
-`Export-ADFS2AADOnPremConfiguration`
+    1.  On your ADFS server, download PowerShell module from [http://aka.ms/migrateapps/adfsscript](http://aka.ms/migrateapps/adfsscript). If you need to save file, be sure to save as .psm1.
+    2.  From this same ADFS server, open PowerShell as "Administrator".
+    4. Change the directory to where you placed this PowerShell module.
+    5. From that PowerShell window, run the following:
+       `ipmo .\\ADFSAADMigrationUtils.psm1`
+       `Export-ADFS2AADOnPremConfiguration`
 
 **Run Analysis From Another Server **
 
-1. Copy c:\\ADFS\\ADFSApps.zip from your ADFS server to another ADFS
-server where you want to run analysis
+    1. Copy c:\ADFS\ADFSApps.zip from your ADFS server to another ADFSserver where you want to run analysis
+    2. On this other ADFS server, unzip the .XML files to a folder of your choosing
+    3. On this other ADFS server, download PowerShell module from [http://aka.ms/migrateapps/adfsscript](http://aka.ms/migrateapps/adfsscript). If you need to save file, be sure to save as .psm1 .
+    4. From this other server, open PowerShell as "Administrator".
+    5. Change the directory to where you placed this PowerShell module.
+    6. From that PowerShell window, run the following:
+        `ipmo .\\ADFSAADMigrationUtils.psm1`
+        `Test-ADFS2AADOnPremRPTrustSet -RPXMLFileDirectory "<Full Path to XML Folder>"`
+    7. Collect the following files from this ADFS server. They will be in the same folder that you changed directories to in Step 5.
+        - ADFSRPConfiguration.csv
+        - Attributes.csv
+        - AttributeStores.csv
+        - ClaimTypes.csv
+        - RuleDetails.csv
+    8. On a workstation that has Excel installed, create a folder at c:\adfs and place the above .csv files in this folder
+    9. From this same workstation, open this Excel spreadsheet and navigate to the Dashboard tab and hit the Refresh Data button on the right.
 
-2. On this other ADFS server, unzip the .XML files to a folder of your
-choosing
-
-3. On this other ADFS server, download PowerShell module from
-<http://aka.ms/migrateapps/adfsscript>. If you need to save file, be
-sure to save as .psm1 .
-
-4. From this other server, open PowerShell as "Administrator".
-
-5. Change the directory to where you placed this PowerShell module.
-
-6. From that PowerShell window, run the following:
-
-`ipmo .\\ADFSAADMigrationUtils.psm1`
-
-`Test-ADFS2AADOnPremRPTrustSet -RPXMLFileDirectory "<Full Path to XML
-Folder>"`
-
-7. Collect the following files from this ADFS server. They will be in
-the same folder that you changed directories to in Step 5.
-
--   ADFSRPConfiguration.csv
-
--   Attributes.csv
-
--   AttributeStores.csv
-
--   ClaimTypes.csv
-
--   RuleDetails.csv
-
-8. On a workstation that has Excel installed, create a folder at
-c:\\adfs and place the above .csv files in this folder
-
-9. From this same workstation, open this Excel spreadsheet and navigate
-to the Dashboard tab and hit the Refresh Data button on the right.
-
-**Note:** If you want to re-export and re-analyze the data, just repeat
-Steps 7-10 and overwrite files in Step 6 with new files.
+**Note:** If you want to re-export and re-analyze the data, just repeat Steps 7-10 and overwrite files in Step 6 with new files.
 
 **Report - Instructions for Using the Excel Spreadsheet**
 
 **Refreshing Your Data**
 
-Anytime you want to refresh your data, just make sure that the latest
-.csv files are located within c:\\ADFS and from the Dashboard tab, just
-hit the ‘Refresh Data’ button:
+Anytime you want to refresh your data, just make sure that the latest .csv files are located within c:\\ADFS and from the Dashboard tab, just hit the ‘Refresh Data’ button:
 
 ![](media/image1.png)
 
 **Viewing Your All-Up Results**
 
-The first tab you’ll want to review is the ‘Dashboard’ tab to see an
-all-up view of how many applications you have and whether they can
-migrate to Azure AD or not:
+The first tab you’ll want to review is the ‘Dashboard’ tab to see an all-up view of how many applications you have and whether they can migrate to Azure AD or not:
 
 ![](media/image2.png)
 
 **Viewing Individual Application Results**
 
-Next, you’ll want to look at the individual status on each application
-on the ‘AAD App Migration Report’ tab. This will tell you whether the
-application will readily migrate to Azure AD or whether there are
-settingd on the application that are currently incompatible with Azure
-AD or need to be reviewed further.
+Next, you’ll want to look at the individual status on each application on the ‘AAD App Migration Report’ tab. This will tell you whether the application will readily migrate to Azure AD or whether there are settingd on the application that are currently incompatible with Azure AD or need to be reviewed further.
 
 ![](media/image3.png)
 
-As you can see here, both 7FAM applications passed and can be readily
-migrate to Azure AD but the remaining three applications have some items
-on them that could prevent them from being moved to Azure AD.
+As you can see here, both 7FAM applications passed and can be readily migrate to Azure AD but the remaining three applications have some items on them that could prevent them from being moved to Azure AD.
 
 **Note: See bottom of document for description of each result**
 
-Additionally, from this same tab, we include the following items per
-application so you can gain some further insight about what
-configuration changes may be required to move your application to Azure
-AD:
+Additionally, from this same tab, we include the following items per application so you can gain some further insight about what configuration changes may be required to move your application to Azure AD:
 
 -   **Claim Rules to Review:** We flag any “custom” claim rules that may
     not be compatible with Azure AD and provide the total number of
@@ -212,9 +158,7 @@ AD:
 
 **Viewing All your Claim Rules**
 
-If you want more detail on all your claim rules across all your
-applications, navigate to the ‘Claim Rules Details’ tab. This provides
-you with the following information:
+If you want more detail on all your claim rules across all your applications, navigate to the ‘Claim Rules Details’ tab. This provides you with the following information:
 
 -   **RP Name:** The name of the application
 
@@ -236,9 +180,7 @@ you with the following information:
 
 **Viewing All your AD Attributes within your Claim Rules**
 
-If you want more detail on all the AD attributes in use across all your
-applications, navigate to the ‘AD Attributes’ tab. This provides you
-with the following information:
+If you want more detail on all the AD attributes in use across all your applications, navigate to the ‘AD Attributes’ tab. This provides you with the following information:
 
 -   **RP Name:** The name of the application
 
@@ -262,12 +204,7 @@ with the following information:
 
 **Viewing All your Claim Type URI’s within your Claim Rules**
 
-If you want more detail on all the individual claim types URI’s in use
-across all your applications, navigate to the ‘Claim Types’ tab. When
-moving an application to Azure AD, it easier to just register your
-individual claim types within Azure AD rather than asking your software
-vendor to change their configuration. This provides you with the
-following information:
+If you want more detail on all the individual claim types URI’s in use across all your applications, navigate to the ‘Claim Types’ tab. When moving an application to Azure AD, it easier to just register your individual claim types within Azure AD rather than asking your software vendor to change their configuration. This provides you with the following information:
 
 -   **RP Name:** The name of the application
 
@@ -287,10 +224,7 @@ following information:
 
 **Viewing All your Attribute Stores within your Claim Rules**
 
-If you want more detail on all the Attribute Stores in use across all
-your applications, navigate to the ‘Attribute Stores’ tab. Azure AD
-doesn’t currently support any custom attribute stores. This provides you
-with the following information:
+If you want more detail on all the Attribute Stores in use across all your applications, navigate to the ‘Attribute Stores’ tab. Azure AD doesn’t currently support any custom attribute stores. This provides you with the following information:
 
 -   **RP Name:** The name of the application
 
@@ -308,31 +242,21 @@ with the following information:
 
 **Modeling Change to your applications**
 
-We wanted to provide a way for customers to see the migration impact of
-changes they are willing to make to their applications without them
-actually having to make any changes. So back on the ‘Dashboard’ tab, you
-can type **Yes** next to the issues you’re willing to resolve and see
-how that impacts your migration %. Additionally, the issues impacting
-the most applications will highlight themselves in a light green like
-so:
+We wanted to provide a way for customers to see the migration impact of changes they are willing to make to their applications without them actually having to make any changes. So back on the ‘Dashboard’ tab, you can type **Yes** next to the issues you’re willing to resolve and see how that impacts your migration %. Additionally, the issues impacting the most applications will highlight themselves in a light green like so:
 
 ![](media/image9.png)
 
-Next, mark the items you are committing to resolve or features that may
-be coming as part of the Azure AD roadmap:
+Next, mark the items you are committing to resolve or features that may be coming as part of the Azure AD roadmap:
 
 ![](media/image10.png)
 
-Upon doing so, the top of the ‘Dashboard’ tab will update to reflect
-your new migration % like so:
+Upon doing so, the top of the ‘Dashboard’ tab will update to reflect your new migration % like so:
 
 ![](media/image11.png)
 
 **Viewing All Tests we Ran Your Applications Through**
 
-If you’re interested to see all the tests we ran your applications
-through with a status of Pass, Warning, or Fail, navigate to the ‘All
-Apps Details’ tab. Here is more information on each of the columns:
+If you’re interested to see all the tests we ran your applications through with a status of Pass, Warning, or Fail, navigate to the ‘All Apps Details’ tab. Here is more information on each of the columns:
 
 | Property                                        	| Status            	| Description                                                                                                                                                         	|
 |-------------------------------------------------	|-------------------	|---------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
@@ -358,39 +282,21 @@ Apps Details’ tab. Here is more information on each of the columns:
 Getting support from Microsoft
 ==============================
 
-There are several different avenues from which you can get support
-during your AD FS – Azure AD migration:
+There are several different avenues from which you can get support during your AD FS – Azure AD migration:
 
-**Azure Support:** Depending on your Enterprise Agreement with
-Microsoft, you can call Microsoft Support and open a ticket for any
-issue related to your Azure Identity deployment. For more information on
-how to get in touch with Microsoft Support, please visit our Azure
-support portal: <https://azure.microsoft.com/support>
+**Azure Support:** Depending on your Enterprise Agreement with Microsoft, you can call Microsoft Support and open a ticket for any
+issue related to your Azure Identity deployment. For more information on how to get in touch with Microsoft Support, please visit our Azure support portal: <https://azure.microsoft.com/support>
 
-**FastTrack**: If you have purchased Enterprise Mobility and Security
-(EMS) licenses or Azure AD Premium licenses, you may be eligible to
-receive deployment assistance from the FastTrack program. For more
-information on how to engage with FastTrack, please refer to our
-documentation on the [FastTrack Center Eligibility Benefit for
+**FastTrack**: If you have purchased Enterprise Mobility and Security (EMS) licenses or Azure AD Premium licenses, you may be eligible to receive deployment assistance from the FastTrack program. For more information on how to engage with FastTrack, please refer to our documentation on the [FastTrack Center Eligibility Benefit for
 Enterprise Mobility and
 Security](https://docs.microsoft.com/en-us/enterprise-mobility-security/solutions/enterprise-mobility-fasttrack-program)
 
-**Engage the Product Engineering Team:** If you are working on a major
-customer deployment with millions of users, you can work with your
-Microsoft account team or your Cloud Solutions Architect to decide if
-the project’s deployment complexity warrants working directly with the
-Azure Identity Product Engineering team.
+**Engage the Product Engineering Team:** If you are working on a major customer deployment with millions of users, you can work with your Microsoft account team or your Cloud Solutions Architect to decide if the project’s deployment complexity warrants working directly with the Azure Identity Product Engineering team.
 
 **EMS Blog:** Subscribe to the [EMS
-Blog](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
-to stay up to date with all the latest product announcements, deep
-dives, and roadmap information provided directly by the Identity
-engineering team. Further, you can also post comments and get feedback
-from the engineering group.
+Blog](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory) to stay up to date with all the latest product announcements, deep dives, and roadmap information provided directly by the Identity engineering team. Further, you can also post comments and get feedback from the engineering group.
 
-**Azure Active Directory Public Forums:** Azure AD also has several
-closely monitored channels available to the public. Here are some useful
-links:
+**Azure Active Directory Public Forums:** Azure AD also has several closely monitored channels available to the public. Here are some useful links:
 
 -   StackOverflow using the tags
     [‘adfs’](https://stackoverflow.com/questions/tagged/adfs)
