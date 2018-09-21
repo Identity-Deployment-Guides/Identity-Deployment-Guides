@@ -18,23 +18,20 @@ Instructions for how to use the tool
 
 The ADFS to AAD App Migration tool consists of three steps:
 
-## **Collect**
-
+### **Collect**
 First, we collect the relying party applications from your ADFS server.
 This is done via a PowerShell module that will need to run on one of
 your ADFS server and it writes the configuration of each application to
 the file system as individual .XML files
 
-## **Analyze**
-
+### **Analyze**
 Next, our PowerShell module will enumerate through the individual .XML
 files and check the configuration of various settings. This analysis can
 be done directly on your ADFS server or can be done on another ADFS
 server but currently, it requires ADFS be installed to properly process
 the configuration.
 
-## **Report**
-
+### **Report**
 Lastly, we generate a final Excel report of your relying party
 applications that outlines which applications can be migrated to Azure
 AD and which ones can’t and why they can’t. This part has to be run from
