@@ -1,5 +1,3 @@
-**ADFS to Azure AD App Migration Tool Instructions**
-
 Take our survey to shape the future; we’d love your feedback!
 =============================================================
 
@@ -11,7 +9,7 @@ survey!**
 We’re always listening, and if you want to get in touch with us
 directly, send an email to <aadappfeedback@microsoft.com>.
 
-Instructions for how to use the tool
+ADFS to Azure AD App Migration Tool Instructions
 ====================================
 
 **If you want this same guidance below  in Word Document form click to the [ADFS to AAD Migration Tool Help File](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/ADFS%20to%20AzureAD%20App%20Migration/ADFS%20to%20AAD%20Migration%20Tool%20Help%20File.docx) in the repo above and click the "download" button.**
