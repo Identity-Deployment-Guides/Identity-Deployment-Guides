@@ -37,7 +37,7 @@ applications that outlines which applications can be migrated to Azure
 AD and which ones can’t and why they can’t. This part has to be run from
 a workstation or server where Excel is installed.
 
-## **Collect & Analyze**
+# **Collect & Analyze**
 
 ### **Instructions if you want to collect and analyze directly from your ADFS server:**
 
@@ -92,7 +92,7 @@ a workstation or server where Excel is installed.
 
 **Note:** If you want to re-export and re-analyze the data, just repeat Steps 7-10 and overwrite files in Step 6 with new files.
 
-## **Report - Instructions for Using the Excel Spreadsheet**
+# **Report - Instructions for Using the Excel Spreadsheet**
 
 ### **Refreshing Your Data**
 
@@ -239,7 +239,7 @@ Upon doing so, the top of the ‘Dashboard’ tab will update to reflect your ne
 
 ![](media/image11.png)
 
-## **Viewing All Tests we Ran Your Applications Through**
+# **Viewing All Tests we Ran Your Applications Through**
 
 If you’re interested to see all the tests we ran your applications through with a status of Pass, Warning, or Fail, navigate to the ‘All Apps Details’ tab. Here is more information on each of the columns:
 
