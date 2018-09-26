@@ -39,22 +39,22 @@ a workstation or server where Excel is installed.
 
 ### **Instructions if you want to collect and analyze directly from your ADFS server:**
 
-    1. Download PowerShell module from [http://aka.ms/migrateapps/adfsscript](http://aka.ms/migrateapps/adfsscript)
-    2. Copy PowerShell module to one of your ADFS servers that you want to run analysis. If you need to save file, be sure to save as .psm1
-    3. From this same ADFS server, open PowerShell as "Administrator"
-    4. Change the directory to where you placed this PowerShell module
-    5. From that PowerShell window, run the following:
-       `ipmo .\\ADFSAADMigrationUtils.psm1`
-       `Export-ADFS2AADOnPremConfiguration`
-        `Test-ADFS2AADOnPremRPTrustSet -RPXMLFileDirectory "C:\adfs\apps"`
-    6. Collect the following files from the ADFS server. They will be in the same folder that you changed directories to in Step 4.
+   1. Download PowerShell module from [http://aka.ms/migrateapps/adfsscript](http://aka.ms/migrateapps/adfsscript)
+   2. Copy PowerShell module to one of your ADFS servers that you want to run analysis. If you need to save file, be sure to save as .psm1
+   3. From this same ADFS server, open PowerShell as "Administrator"
+   4. Change the directory to where you placed this PowerShell module
+   5. From that PowerShell window, run the following:
+       - `ipmo .\\ADFSAADMigrationUtils.psm1`
+       - `Export-ADFS2AADOnPremConfiguration`
+       - `Test-ADFS2AADOnPremRPTrustSet -RPXMLFileDirectory "C:\adfs\apps"`     
+   6. Collect the following files from the ADFS server. They will be in the same folder that you changed directories to in Step 4.
         - ADFSRPConfiguration.csv
         - Attributes.csv
         - AttributeStores.csv
         - ClaimTypes.csv
         - RuleDetails.csv
-    7. On a workstation that has Excel installed, create a folder at c:\adfs and place the above .csv files in this folder
-    8. From this same workstation, open this Excel spreadsheet and navigate to the Dashboard tab and hit the Refresh Data button on the right.
+   7. On a workstation that has Excel installed, create a folder at c:\adfs and place the above .csv files in this folder
+   8. From this same workstation, open this Excel spreadsheet and navigate to the Dashboard tab and hit the Refresh Data button on the right.
 
 **Note:** If you want to re-export and re-analyze the data, just repeat Steps 5-7 and overwrite files in Step 6 with new files
 
@@ -62,31 +62,30 @@ a workstation or server where Excel is installed.
 
 #### **ADFS Server**
 
-    1.  On your ADFS server, download PowerShell module from [http://aka.ms/migrateapps/adfsscript](http://aka.ms/migrateapps/adfsscript). If you need to save file, be sure to save as .psm1.
-    2.  From this same ADFS server, open PowerShell as "Administrator".
-    4. Change the directory to where you placed this PowerShell module.
-    5. From that PowerShell window, run the following:
-       `ipmo .\\ADFSAADMigrationUtils.psm1`
-       `Export-ADFS2AADOnPremConfiguration`
+   1.  On your ADFS server, download PowerShell module from [http://aka.ms/migrateapps/adfsscript](http://aka.ms/migrateapps/adfsscript). If you need to save file, be sure to save as .psm1.
+   2.  From this same ADFS server, open PowerShell as "Administrator".
+   4. Change the directory to where you placed this PowerShell module.
+   5. From that PowerShell window, run the following:
+      - `ipmo .\\ADFSAADMigrationUtils.psm1`
+      - `Export-ADFS2AADOnPremConfiguration`
 
 #### **Run Analysis From Another Server **
 
-    1. Copy c:\ADFS\ADFSApps.zip from your ADFS server to another ADFSserver where you want to run analysis
-    2. On this other ADFS server, unzip the .XML files to a folder of your choosing
-    3. On this other ADFS server, download PowerShell module from [http://aka.ms/migrateapps/adfsscript](http://aka.ms/migrateapps/adfsscript). If you need to save file, be sure to save as .psm1 .
-    4. From this other server, open PowerShell as "Administrator".
-    5. Change the directory to where you placed this PowerShell module.
-    6. From that PowerShell window, run the following:
-        `ipmo .\\ADFSAADMigrationUtils.psm1`
-        `Test-ADFS2AADOnPremRPTrustSet -RPXMLFileDirectory "<Full Path to XML Folder>"`
-    7. Collect the following files from this ADFS server. They will be in the same folder that you changed directories to in Step 5.
+   1. Copy c:\ADFS\ADFSApps.zip from your ADFS server to another ADFSserver where you want to run analysis
+   2. On this other ADFS server, unzip the .XML files to a folder of your choosing
+   3. On this other ADFS server, download PowerShell module from [http://aka.ms/migrateapps/adfsscript](http://aka.ms/migrateapps/adfsscript). If you need to save file, be sure to save as .psm1 .
+   4. From this other server, open PowerShell as "Administrator".
+   5. Change the directory to where you placed this PowerShell module.
+   6. From that PowerShell window, run the following:
+       - `ipmo .\\ADFSAADMigrationUtils.psm1`
+       - `Test-ADFS2AADOnPremRPTrustSet -RPXMLFileDirectory "<Full Path to XML Folder>"`
+   7. Collect the following files from this ADFS server. They will be in the same folder that you changed directories to in Step 5.
         - ADFSRPConfiguration.csv
         - Attributes.csv
         - AttributeStores.csv
         - ClaimTypes.csv
         - RuleDetails.csv
-    8. On a workstation that has Excel installed, create a folder at c:\adfs and place the above .csv files in this folder
-    9. From this same workstation, open this Excel spreadsheet and navigate to the Dashboard tab and hit the Refresh Data button on the right.
+   8. On a workstation that has Excel installed, create a folder at c:\adfs and place the above .csv files in this folder    9. From this same workstation, open this Excel spreadsheet and navigate to the Dashboard tab and hit the Refresh Data button on the right.
 
 **Note:** If you want to re-export and re-analyze the data, just repeat Steps 7-10 and overwrite files in Step 6 with new files.
 
