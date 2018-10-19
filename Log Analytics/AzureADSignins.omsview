@@ -59,7 +59,7 @@
                                         "useIcon": true
                                     },
                                     "Header": {
-                                        "Title": "Sign-ins overtime",
+                                        "Title": "Sign-ins over time",
                                         "Subtitle": ""
                                     },
                                     "LineChart": {
